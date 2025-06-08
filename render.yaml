@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: roobystorebot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: bash start.sh
+    envVars:
+      - key: API_TOKEN
+        value: 8056443890:AAF96YkdQLiYXy0-hwSRVE2jUlNaLqXU5oM
