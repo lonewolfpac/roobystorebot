@@ -2,8 +2,8 @@ import telebot
 from flask import Flask, request
 import os
 
-API_TOKEN = '8056443890:AAF96YkdQLiYXy0-hwSRVE2jUlNaLqXU5oM'
-GROUP_ID = 213188977  # إذا لم تصلك الرسائل للمجموعة، استخدم ID يبدأ بـ -100
+API_TOKEN = os.getenv("API_TOKEN")
+GROUP_ID = -100213188977  # تأكد أن الرقم يبدأ بـ -100
 
 bot = telebot.TeleBot(API_TOKEN)
 app = Flask(_name_)
@@ -45,6 +45,6 @@ def index():
 
 if _name_ == "_main_":
     bot.remove_webhook()
-    webhook_url = 'https://roobystorebot.repl.co/' + API_TOKEN  # This should point to your Replit URL
+    webhook_url = f"https://roobystorebot.onrender.com/{API_TOKEN}"  # غيّره إن كنت تستخدم Replit
     bot.set_webhook(url=webhook_url)
     app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
